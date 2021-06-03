@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <div class="col">
+    
+    
+    <div class="col mt-5">
+      <img src="../static/images/anso.jpg" class="mx-auto d-block" style="width: 15%; height: 15%">
+    </div>   
+    
+    
+    <form class="mt-5" name="search" action="/search">
+      <div class="col-6 mx-auto input-group">
+        <input type="text" class="form-control" name="search" placeholder="search...">
+        <button type="submit" class="btn btn-success">Search</button>
+      </div>
+    </form>    
+  </div>
+{% endblock %}
+
