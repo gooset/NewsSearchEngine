@@ -1,47 +1,47 @@
-# Bike Rebalancing Algorithms
+# News Search Application
 
-This repository contains algorithms implemented in Julia to address the bike rebalancing problem. The bike rebalancing problem refers to the challenge of redistributing bicycles across a bike-sharing network to ensure the availability of bikes at all stations while minimizing operational costs.
+The News Search Application is a web-based search engine that allows users to search for news articles from various sources. It utilizes Elasticsearch as the underlying search engine and Flask as the web framework.
 
-## Algorithms
+## Features
 
-The repository includes the following algorithms:
+- Crawl: The application uses the `newspaper` framework to crawl news articles from predefined sources. It retrieves the article URL, title, text, publish date, and source.
 
-1. **Heuristic Algorithm:** This algorithm employs a heuristic approach to tackle the bike rebalancing problem. It focuses on finding reasonably good solutions in a timely manner, though it may not guarantee an optimal solution.
+- Indexing: The crawled articles are indexed into Elasticsearch, allowing efficient searching and retrieval of articles based on user queries.
 
-2. **Branch and Bound Implementation:** This algorithm utilizes the branch and bound technique to solve the bike rebalancing problem. It explores the solution space by iteratively partitioning it into smaller subproblems and bounding the search using lower and upper bounds to ultimately find an optimal solution.
+- Search: Users can search for articles using keywords. The application performs a full-text search in Elasticsearch and returns relevant articles based on the query.
 
-3. **Simulated Annealing Metaheuristic Implementation:** This algorithm leverages the simulated annealing metaheuristic to address the bike rebalancing problem. Simulated annealing mimics the annealing process in metallurgy to efficiently explore the solution space and find near-optimal solutions.
-
-# Repository Structure
-
-The repository is organized as follows:
-
-- `Algorithms/simulated_annealing.jl/`: Contains the implementation of the simulated annealing metaheuristic in Julia.
-- `Algorithms/branch-and-bound.jl`: Includes the implementation of the branch and bound algorithm in Julia.
-
-## Usage
-
-To use the algorithms in your project, follow these steps:
-
-1. Clone this repository to your local machine using the following command:
-git clone https://github.com/gooset/BikeRebalancing.git
+- Pagination: The search results are paginated for better user experience. The application uses the `flask_paginate` library to implement pagination.
 
 
-2. Navigate to the cloned repository:
+## Setup and Usage
 
-cd BikeRebalancing
+1. Install Dependencies: Ensure that you have Python installed. Install the required dependencies by running `pip install -r requirements.txt`.
 
+2. Configure Elasticsearch: Make sure you have Elasticsearch installed and running. Adjust the Elasticsearch connection settings in the code to match your Elasticsearch configuration.
 
-3. Execute the desired algorithm by running the corresponding script file along with the path to the problem instance file. For example, to execute the simulated annealing algorithm on the `tsdp_9_s500_k14.dat` instance file located at `/home/user/instances`, use the following command:
+3. Crawl Articles: Run the crawl script to collect news articles from the predefined sources. The script will crawl the articles, extract relevant information, and index them into Elasticsearch.
 
-julia Algorithms/simulated_annealing.jl /home/user/instances/tsdp_9_s500_k14.dat
+4. Start the Application: Run `python3 run.py` to start the Flask web server. Access the application in your browser at `http://localhost:5000`.
 
+5. Search Articles: Use the search bar to enter keywords and retrieve relevant articles. Use the advanced search options to further refine your search.
 
-Modify the path and filename as per your specific instance file.
+6. Pagination: Navigate through the search results using the pagination links at the bottom of the page.
 
-Note: Make sure you have Julia installed on your machine before executing the script.
+## Future Improvements
 
-4. The algorithm will process the instance file and provide the output or results based on the specific algorithm's logic.
+- User Authentication: Implement user authentication and authorization to allow personalized features such as saving articles or creating custom search preferences.
 
-Feel free to explore and modify the algorithm implementations according to your requirements.
+- Real-time Updates: Add functionality to automatically crawl and index new articles periodically to ensure the search engine is up to date with the latest news.
+
+- User Interface Enhancements: Improve the user interface with a responsive design, additional search filters, and interactive features.
+
+- Advanced Search: The application provides advanced search options such as filtering articles by date range or specific sources.
+
+## Contributions
+
+Contributions to the News Search Application are welcome! If you have any ideas for new features, bug fixes, or general improvements, feel free to submit a pull request.
+
+## License
+
+The News Search Application is open-source and released under the [MIT License](LICENSE).
 
